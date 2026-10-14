@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locked-In — Fitness & Coaching Platform</title>
+  <meta name="description" content="Locked-In is your all-in-one fitness and coaching platform. Connect with professionals, track workouts, and share progress.">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Locked-In Design System -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .hero-section {
+      padding: 120px 0 80px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .hero-glow {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(0, 230, 118, 0.15) 0%, rgba(26, 26, 46, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      background: var(--color-primary-soft);
+      color: var(--color-primary);
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semi);
+      margin-bottom: var(--space-lg);
+      border: 1px solid rgba(0, 230, 118, 0.25);
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: var(--space-md);
+      letter-spacing: -1px;
+    }
+    .hero-title .text-gradient {
+      background: linear-gradient(135deg, var(--color-primary), #69f0ae);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle {
+      font-size: var(--fs-lg);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-xl);
+      line-height: var(--lh-relaxed);
+    }
+    .portal-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all var(--transition-base);
+      text-decoration: none;
+    }
+    .portal-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--color-primary);
+      box-shadow: var(--shadow-glow-primary);
+    }
+    .portal-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: var(--space-md);
+    }
+    .portal-card h3 {
+      font-size: var(--fs-lg);
+      font-weight: var(--fw-semi);
+      color: var(--color-heading);
+      margin-bottom: var(--space-xs);
+    }
+    .portal-card p {
+      font-size: var(--fs-sm);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-lg);
+      flex-grow: 1;
+    }
+    .portal-link {
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-semi);
+      color: var(--color-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .portal-card:hover .portal-link i {
+      transform: translateX(4px);
+      transition: transform var(--transition-fast);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════ NAVBAR ═══════════ -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-locked-in">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="bi bi-lightning-charge-fill brand-icon"></i>
+        Locked-In
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html"><i class="bi bi-house nav-icon"></i>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/community/index.html"><i class="bi bi-people nav-icon"></i>Community</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/admin/dashboard.html"><i class="bi bi-speedometer2 nav-icon"></i>Admin Panel</a>
+          </li>
+          <li class="nav-item ms-lg-2">
+            <a href="pages/community/index.html" class="btn-li-primary btn-sm">
+              <i class="bi bi-fire me-1"></i> Launch Feed
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <header class="hero-section">
+    <div class="hero-glow"></div>
+    <div class="container hero-content">
+      <div class="hero-badge fade-in-up">
+        <i class="bi bi-stars"></i> Next-Gen Fitness & Coaching Community
+      </div>
+      <h1 class="hero-title fade-in-up fade-in-up-delay-1">
+        Stay <span class="text-gradient">Locked-In</span> to Your Goals
+      </h1>
+      <p class="hero-subtitle fade-in-up fade-in-up-delay-2">
+        An all-in-one fitness ecosystem connecting athletes, coaches, and enthusiasts. Share routines, track progress, review professional applications, and moderate community growth.
+      </p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap fade-in-up fade-in-up-delay-3">
+        <a href="pages/community/index.html" class="btn-li-primary">
+          <i class="bi bi-people-fill me-2"></i> Explore Community
+        </a>
+        <a href="pages/admin/dashboard.html" class="btn-li-outline">
+          <i class="bi bi-shield-lock me-2"></i> Admin Dashboard
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════ NAVIGATION PORTAL ═══════════ -->
+  <main class="container py-5">
+    <div class="text-center mb-5 fade-in-up">
+      <h2 style="font-size:var(--fs-2xl);font-weight:var(--fw-bold);">Platform Modules</h2>
+      <p style="color:var(--color-muted);">Explore the active community and administration sections</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Community -->
+      <div class="col-md-6 col-lg-4">
+        <a href="pages/community/index.html" class="portal-card fade-in-up fade-in-up-delay-1">
+          <div>
+            <div class="portal-icon bg-primary-soft text-primary">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <h3>Community Feed</h3>
+            <p>Interactive fitness feed with posts, like animations, threaded comments, categories, and moderation reporting.</p>
+          </div>
+          <div class="portal-link">
+            Open Community <i class="bi bi-arrow-right"></i>
+          </div>
+        </a>
+      </div>
+
+      <!-- Admin Dashboard -->
+      <div class="col-md-6 col-lg-4">
+        <a href="pages/admin/dashboard.html" class="portal-card fade-in-up fade-in-up-delay-2">
+          <div>
+            <div class="portal-icon bg-accent-soft text-accent">
+              <i class="bi bi-speedometer2"></i>
+            </div>
+            <h3>Admin Dashboard</h3>
+            <p>High-level platform KPI metrics, interactive growth charts, recent activity timeline, and quick-action alerts.</p>
+          </div>
+          <div class="portal-link">
+            Open Dashboard <i class="bi bi-arrow-right"></i>
+          </div>
+        </a>
+      </div>
+
+      <!-- User Management -->
+      <div class="col-md-6 col-lg-4">
+        <a href="pages/admin/users.html" class="portal-card fade-in-up fade-in-up-delay-3">
+          <div>
+            <div class="portal-icon bg-info-soft text-info">
+              <i class="bi bi-person-lines-fill"></i>
+            </div>
+            <h3>User Management</h3>
+            <p>Live search and role filtering, profile modal inspection, and account suspension/reactivation workflows.</p>
+          </div>
+          <div class="portal-link">
+            Manage Users <i class="bi bi-arrow-right"></i>
+          </div>
+        </a>
+      </div>
+
+      <!-- Professional Applications -->
+      <div class="col-md-6 col-lg-6">
+        <a href="pages/admin/applications.html" class="portal-card fade-in-up fade-in-up-delay-3">
+          <div>
+            <div class="portal-icon bg-warning-soft text-warning">
+              <i class="bi bi-person-badge-fill"></i>
+            </div>
+            <h3>Professional Applications</h3>
+            <p>Review certifications, coaching experience, and credentials with instant approval and rejection actions.</p>
+          </div>
+          <div class="portal-link">
+            Review Applications <i class="bi bi-arrow-right"></i>
+          </div>
+        </a>
+      </div>
+
+      <!-- Reports & Moderation -->
+      <div class="col-md-6 col-lg-6">
+        <a href="pages/admin/reports.html" class="portal-card fade-in-up fade-in-up-delay-4">
+          <div>
+            <div class="portal-icon bg-danger-soft text-danger">
+              <i class="bi bi-flag-fill"></i>
+            </div>
+            <h3>Moderation Reports</h3>
+            <p>Safety review interface for flagged community posts, spam, and comments with status resolution workflows.</p>
+          </div>
+          <div class="portal-link">
+            Review Reports <i class="bi bi-arrow-right"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer-locked-in mt-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="footer-brand">
+            <i class="bi bi-lightning-charge-fill text-primary"></i> Locked-In
+          </div>
+          <p class="footer-desc">Your all-in-one fitness platform. Train smarter, eat better, and connect with a community that keeps you accountable.</p>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="footer-heading">Community</div>
+          <a href="pages/community/index.html" class="footer-link">Feed</a>
+          <a href="pages/community/index.html" class="footer-link">Trending Topics</a>
+          <a href="pages/community/index.html" class="footer-link">Guidelines</a>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="footer-heading">Administration</div>
+          <a href="pages/admin/dashboard.html" class="footer-link">Dashboard</a>
+          <a href="pages/admin/users.html" class="footer-link">User Management</a>
+          <a href="pages/admin/applications.html" class="footer-link">Applications</a>
+          <a href="pages/admin/reports.html" class="footer-link">Reports</a>
+        </div>
+        <div class="col-lg-2">
+          <div class="footer-heading">Status</div>
+          <p class="footer-desc" style="margin-bottom:8px;"><span class="badge-li badge-success">Online</span></p>
+          <small class="text-muted">Port: 3000</small>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Locked-In Fitness. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

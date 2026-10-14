@@ -1,0 +1,160 @@
+/* ============================================================
+   LOCKED-IN — Global Styles (global.css)
+   ============================================================
+   Base resets, typography, scrollbar, selection, and body-level
+   styles that apply to every page.  Loaded after variables.css.
+   ============================================================ */
+
+/* ── Google Font import ─────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ── Minimal reset ──────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Base ────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-normal);
+  line-height: var(--lh-normal);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Selection ──────────────────────────────────────────────── */
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+}
+
+/* ── Custom scrollbar (WebKit) ──────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-muted);
+  border-radius: var(--radius-pill);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
+
+/* Firefox scrollbar */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-muted) var(--color-bg);
+}
+
+/* ── Typography ─────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-heading);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  margin-bottom: var(--space-sm);
+}
+h1 { font-size: var(--fs-3xl); }
+h2 { font-size: var(--fs-2xl); }
+h3 { font-size: var(--fs-xl);  }
+h4 { font-size: var(--fs-lg);  }
+h5 { font-size: var(--fs-md);  }
+h6 { font-size: var(--fs-base);}
+
+p {
+  margin-bottom: var(--space-md);
+  color: var(--color-text-secondary);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+small, .text-muted {
+  color: var(--color-muted) !important;
+  font-size: var(--fs-sm);
+}
+
+strong {
+  font-weight: var(--fw-semi);
+  color: var(--color-text);
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Focus / accessibility ──────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Utility : page padding below fixed navbar ──────────────── */
+.page-wrapper {
+  padding-top: calc(var(--navbar-height) + var(--space-lg));
+  padding-bottom: var(--space-3xl);
+  min-height: 100vh;
+}
+
+/* ── Utility text helpers ───────────────────────────────────── */
+.text-primary  { color: var(--color-primary)  !important; }
+.text-accent   { color: var(--color-accent)   !important; }
+.text-danger   { color: var(--color-danger)   !important; }
+.text-success  { color: var(--color-success)  !important; }
+.text-warning  { color: var(--color-warning)  !important; }
+.text-info     { color: var(--color-info)     !important; }
+
+.bg-primary-soft  { background-color: var(--color-primary-soft)  !important; }
+.bg-accent-soft   { background-color: var(--color-accent-soft)   !important; }
+.bg-danger-soft   { background-color: var(--color-danger-soft)   !important; }
+.bg-warning-soft  { background-color: var(--color-warning-soft)  !important; }
+.bg-info-soft     { background-color: var(--color-info-soft)     !important; }
+.bg-success-soft  { background-color: var(--color-success-soft)  !important; }
+
+/* ── Fade-in animation ──────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+.fade-in-up {
+  animation: fadeInUp 0.5s ease forwards;
+}
+.fade-in-up-delay-1 { animation-delay: 0.1s; opacity: 0; }
+.fade-in-up-delay-2 { animation-delay: 0.2s; opacity: 0; }
+.fade-in-up-delay-3 { animation-delay: 0.3s; opacity: 0; }
+.fade-in-up-delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.05); }
+}

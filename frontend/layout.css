@@ -1,0 +1,217 @@
+/* ============================================================
+   LOCKED-IN — Layout (layout.css)
+   ============================================================
+   Navbar, sidebar, footer, and shared page-layout helpers.
+   ============================================================ */
+
+/* ── Navbar ─────────────────────────────────────────────────── */
+.navbar-locked-in {
+  background: rgba(26, 26, 46, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 var(--space-lg);
+  height: var(--navbar-height);
+  z-index: var(--z-fixed);
+  transition: background var(--transition-base);
+}
+.navbar-locked-in .navbar-brand {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-xl);
+  color: var(--color-heading);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  letter-spacing: -0.5px;
+}
+.navbar-locked-in .navbar-brand .brand-icon {
+  color: var(--color-primary);
+  font-size: 1.4rem;
+}
+.navbar-locked-in .nav-link {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  padding: var(--space-sm) var(--space-md) !important;
+  border-radius: var(--radius-md);
+  transition: color var(--transition-fast),
+              background var(--transition-fast);
+  position: relative;
+}
+.navbar-locked-in .nav-link:hover,
+.navbar-locked-in .nav-link.active {
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+.navbar-locked-in .nav-link .nav-icon {
+  margin-right: 6px;
+  font-size: 1rem;
+}
+
+/* Notification badge on nav */
+.nav-badge {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-circle);
+  background: var(--color-danger);
+  border: 2px solid var(--color-bg);
+}
+
+/* Toggler */
+.navbar-locked-in .navbar-toggler {
+  border-color: var(--color-border);
+  padding: 4px 8px;
+}
+.navbar-locked-in .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* Dropdown overrides */
+.navbar-locked-in .dropdown-menu {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-xs);
+}
+.navbar-locked-in .dropdown-item {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-sm);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  transition: all var(--transition-fast);
+}
+.navbar-locked-in .dropdown-item:hover {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+.navbar-locked-in .dropdown-divider {
+  border-color: var(--color-border);
+}
+
+/* ── Page header area ───────────────────────────────────────── */
+.page-header {
+  margin-bottom: var(--space-2xl);
+}
+.page-header h1 {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  margin-bottom: var(--space-xs);
+}
+.page-header .page-subtitle {
+  color: var(--color-muted);
+  font-size: var(--fs-base);
+}
+
+/* ── Admin sidebar (optional layout) ────────────────────────── */
+.admin-sidebar {
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  padding: var(--space-lg) 0;
+  min-height: calc(100vh - var(--navbar-height));
+}
+.admin-sidebar .sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  color: var(--color-text-secondary);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  border-radius: 0;
+  transition: all var(--transition-fast);
+  border-left: 3px solid transparent;
+}
+.admin-sidebar .sidebar-link:hover {
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+  border-left-color: var(--color-primary);
+}
+.admin-sidebar .sidebar-link.active {
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+  border-left-color: var(--color-primary);
+  font-weight: var(--fw-semi);
+}
+.admin-sidebar .sidebar-heading {
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-muted);
+  padding: var(--space-md) var(--space-lg) var(--space-xs);
+  font-weight: var(--fw-semi);
+}
+
+/* ── Footer ─────────────────────────────────────────────────── */
+.footer-locked-in {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-2xl) 0 var(--space-lg);
+  margin-top: var(--space-3xl);
+}
+.footer-locked-in .footer-brand {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-lg);
+  color: var(--color-heading);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+.footer-locked-in .footer-desc {
+  color: var(--color-muted);
+  font-size: var(--fs-sm);
+  max-width: 320px;
+}
+.footer-locked-in .footer-heading {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semi);
+  color: var(--color-heading);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: var(--space-md);
+}
+.footer-locked-in .footer-link {
+  display: block;
+  color: var(--color-muted);
+  font-size: var(--fs-sm);
+  padding: 3px 0;
+  transition: color var(--transition-fast);
+}
+.footer-locked-in .footer-link:hover {
+  color: var(--color-primary);
+}
+.footer-bottom {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-lg);
+  margin-top: var(--space-xl);
+  text-align: center;
+}
+.footer-bottom p {
+  color: var(--color-muted);
+  font-size: var(--fs-xs);
+  margin: 0;
+}
+
+/* ── Section divider ────────────────────────────────────────── */
+.section-divider {
+  border: 0;
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--space-xl) 0;
+}
+
+/* ── Responsive helpers ─────────────────────────────────────── */
+@media (max-width: 991.98px) {
+  .navbar-locked-in .navbar-collapse {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    margin-top: var(--space-sm);
+    box-shadow: var(--shadow-lg);
+  }
+}
